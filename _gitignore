@@ -1,6 +1,6 @@
 # Selected folders
-Solution
-*/.Solution/*
+_arch
+*/._arch/*
 
 # nbgrader database file
 gradebook.db
