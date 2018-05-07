@@ -4,9 +4,7 @@
 
 <img src='images/surfs-up.jpeg' />
 
-Congratulations! You've decided to treat yourself to a long holiday vacation in Honolulu, Hawaii! To help with your trip planning, you decided to do some climate analysis on the area. Because you are such an awesome person, you have decided to share your ninja analytical skills with the community by providing a climate analysis api. The following outlines what you need to do.
-
-## Step 1 - Data Engineering
+**[Step 1 - Data Engineering](data_engineering.ipynb)**
 
 The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.
 
@@ -20,7 +18,7 @@ The climate data for Hawaii is provided through two CSV files. Start by using Py
 
 ---
 
-## Step 2 - Database Engineering
+**[Step 2 - Database Engineering](database_engineering.ipynb)**
 
 Use SQLAlchemy to model your table schemas and create a sqlite database for your tables. You will need one table for measurements and one for stations.
 
@@ -40,7 +38,7 @@ Use SQLAlchemy to model your table schemas and create a sqlite database for your
 
 ---
 
-## Step 3 - Climate Analysis and Exploration
+**[Step 3 - Climate Analysis and Exploration](climate_analysis.ipynb)**
 
 You are now ready to use Python and SQLAlchemy to do basic climate analysis and data exploration on your new weather station tables. All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
 
@@ -52,62 +50,46 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 
 * Use SQLAlchemy `automap_base()` to reflect your tables into classes and save a reference to those classes called `Station` and `Measurement`.
 
-### Precipitation Analysis
+**Precipitation Analysis**
 
 * Design a query to retrieve the last 12 months of precipitation data.
-
-* Select only the `date` and `prcp` values.
-
 * Load the query results into a Pandas DataFrame and set the index to the date column.
-
 * Plot the results using the DataFrame `plot` method.
 
 <center><img src='prcp_analysis.png' /></center>
 
 * Use Pandas to print the summary statistics for the precipitation data.
 
-### Station Analysis
+**Station Analysis
 
 * Design a query to calculate the total number of stations.
-
 * Design a query to find the most active stations.
-
   * List the stations and observation counts in descending order
-
   * Which station has the highest number of observations?
-
 * Design a query to retrieve the last 12 months of temperature observation data (tobs).
-
   * Filter by the station with the highest number of observations.
-
   * Plot the results as a histogram with `bins=12`.
-
   <center><img src='tobs_histogram.png' height="400px" /></center>
 
-### Temperature Analysis
+**Temperature Analysis
 
 * Write a function called `calc_temps` that will accept a start date and end date in the format `%Y-%m-%d` and return the minimum, average, and maximum temperatures for that range of dates.
-
 * Use the `calc_temps` function to calculate the min, avg, and max temperatures for your trip using the matching dates from the previous year (i.e. use "2017-01-01" if your trip start date was "2018-01-01")
-
 * Plot the min, avg, and max temperature from your previous query as a bar chart.
-
   * Use the average temperature as the bar height.
-
   * Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
-
 <center><img src='trip_temp_avgs.png' height="400px"/></center>
 
 
 ---
 
-## Step 4 - Climate App
+**[Step 4 - Climate App]](app.py)**
 
 Now that you have completed your initial analysis, design a Flask api based on the queries that you have just developed.
 
 * Use FLASK to create your routes.
 
-### Routes
+**Routes
 
 * `/api/v1.0/precipitation`
 
@@ -132,13 +114,3 @@ Now that you have completed your initial analysis, design a Flask api based on t
   * When given the start only, calculate `TMIN`, `TAVG`, and `TMAX` for all dates greater than and equal to the start date.
 
   * When given the start and the end date, calculate the `TMIN`, `TAVG`, and `TMAX` for dates between the start and end date inclusive.
-
-## Hints
-
-* You will need to join the station and measurement tables for some of the analysis queries.
-
-* Use Flask `jsonify` to convert your api data into a valid json response object.
-
-## Copyright
-
-Trilogy Education Services © 2017. All Rights Reserved.
