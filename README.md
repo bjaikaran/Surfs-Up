@@ -51,17 +51,13 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
 * Use SQLAlchemy `automap_base()` to reflect your tables into classes and save a reference to those classes called `Station` and `Measurement`.
 
 **Precipitation Analysis**
-
 * Design a query to retrieve the last 12 months of precipitation data.
 * Load the query results into a Pandas DataFrame and set the index to the date column.
 * Plot the results using the DataFrame `plot` method.
-
 <center><img src='prcp_analysis.png' /></center>
-
 * Use Pandas to print the summary statistics for the precipitation data.
 
-**Station Analysis
-
+**Station Analysis**
 * Design a query to calculate the total number of stations.
 * Design a query to find the most active stations.
   * List the stations and observation counts in descending order
@@ -71,8 +67,7 @@ You are now ready to use Python and SQLAlchemy to do basic climate analysis and 
   * Plot the results as a histogram with `bins=12`.
   <center><img src='tobs_histogram.png' height="400px" /></center>
 
-**Temperature Analysis
-
+**Temperature Analysis**
 * Write a function called `calc_temps` that will accept a start date and end date in the format `%Y-%m-%d` and return the minimum, average, and maximum temperatures for that range of dates.
 * Use the `calc_temps` function to calculate the min, avg, and max temperatures for your trip using the matching dates from the previous year (i.e. use "2017-01-01" if your trip start date was "2018-01-01")
 * Plot the min, avg, and max temperature from your previous query as a bar chart.
